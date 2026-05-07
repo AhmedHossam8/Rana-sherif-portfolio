@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #4c0000;
+  --color-secondary: #FFF6C6;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-800/20 text-primary-800;
+  }
+
+  .dark ::selection {
+    @apply bg-secondary-50/20 text-secondary-50;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .card-shadow {
+    box-shadow: 0 2px 12px rgba(76, 0, 0, 0.08);
+  }
+
+  .dark .card-shadow {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  }
+}
