@@ -13,7 +13,6 @@ dist-ssr
 *.local
 .env
 .env.example
-netlify.toml
 
 # Editor directories and files
 .vscode/*

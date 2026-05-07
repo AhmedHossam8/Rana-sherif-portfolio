@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Proxy Behance profile page through Netlify (avoids CORS issues)
+[[redirects]]
+  from = "/api/behance"
+  to = "https://www.behance.net/ranasherif10"
+  status = 200
+  force = true
+
+# Proxy Behance project pages through Netlify
+[[redirects]]
+  from = "/api/behance/gallery/*"
+  to = "https://www.behance.net/gallery/:splat"
+  status = 200
+  force = true
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
