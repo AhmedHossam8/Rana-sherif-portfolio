@@ -100,7 +100,6 @@ export default function PainterCharacter() {
         }}
       >
         <g>
-          {/* Floating animation */}
           <animateTransform
             attributeName="transform"
             type="translate"
@@ -109,7 +108,6 @@ export default function PainterCharacter() {
             repeatCount="indefinite"
           />
 
-          {/* Background splatters — staggered entrance */}
           {[
             { cx: 40, cy: 220, r: 8, color: '#FF6B6B', delay: 0.3 },
             { cx: 180, cy: 240, r: 6, color: '#4ECDC4', delay: 0.5 },
@@ -122,13 +120,11 @@ export default function PainterCharacter() {
             </circle>
           ))}
 
-          {/* Shadow under character */}
           <ellipse cx="110" cy="268" rx="40" ry="6" fill="rgba(0,0,0,0.08)">
             <animate attributeName="rx" values="40;36;40" dur="4s" repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.08;0.05;0.08" dur="4s" repeatCount="indefinite" />
           </ellipse>
 
-          {/* Body */}
           <g opacity="0">
             <animate attributeName="opacity" from="0" to="1" begin="0.2s" dur="0.6s" fill="freeze" />
             <animateTransform attributeName="transform" type="translate" from="0 12" to="0 0" begin="0.2s" dur="0.6s" fill="freeze" />
@@ -141,7 +137,6 @@ export default function PainterCharacter() {
             />
             <path d="M95 140 Q110 150 125 140" stroke="#D4CAB8" strokeWidth="2" fill="none" />
 
-            {/* Body splatters — staggered */}
             {[
               { cx: 100, cy: 180, r: 10, color: '#FF6B6B', delay: 0.4 },
               { cx: 120, cy: 200, r: 8, color: '#4ECDC4', delay: 0.5 },
@@ -159,13 +154,11 @@ export default function PainterCharacter() {
               </g>
             ))}
 
-            {/* Drips */}
             <path d="M100 190 Q99 200 101 205" stroke="#FF6B6B" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
             <path d="M120 208 Q121 218 119 222" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
             <path d="M108 244 Q107 252 109 256" stroke="#FF9F1C" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
           </g>
 
-          {/* Right arm */}
           <g opacity="0">
             <animate attributeName="opacity" from="0" to="1" begin="0.5s" dur="0.4s" fill="freeze" />
             <path
@@ -177,7 +170,6 @@ export default function PainterCharacter() {
             />
             <circle cx="170" cy="190" r="7" fill="#F0DCC8" />
 
-            {/* Paintbrush */}
             <g transform="rotate(-30, 170, 190)">
               <rect x="166" y="175" width="8" height="30" rx="2" fill="#8B6914" />
               <rect x="166" y="170" width="8" height="8" rx="1" fill="#C0A060" />
@@ -189,24 +181,20 @@ export default function PainterCharacter() {
             </g>
           </g>
 
-          {/* Left arm */}
           <g opacity="0">
             <animate attributeName="opacity" from="0" to="0.7" begin="0.45s" dur="0.4s" fill="freeze" />
             <path d="M85 155 Q70 162 60 175" stroke="#E8D5C4" strokeWidth="9" strokeLinecap="round" fill="none" opacity="0.7" />
           </g>
 
-          {/* Neck */}
           <g opacity="0">
             <animate attributeName="opacity" from="0" to="1" begin="0.3s" dur="0.4s" fill="freeze" />
             <rect x="102" y="128" width="16" height="16" rx="3" fill="#F0DCC8" />
           </g>
 
-          {/* Head — entrance layer */}
           <g opacity="0">
             <animate attributeName="opacity" from="0" to="1" begin="0.15s" dur="0.5s" fill="freeze" />
             <animateTransform attributeName="transform" type="translate" from="0 15" to="0 0" begin="0.15s" dur="0.5s" fill="freeze" />
 
-            {/* Head — mouse tracking layer */}
             <g
               style={{
                 transformOrigin: '110px 115px',
@@ -214,7 +202,16 @@ export default function PainterCharacter() {
                 transition: 'transform 0.1s linear',
               }}
             >
+              {/* Back hair */}
+              <path d="M78 70 Q68 80 66 105 Q64 125 72 135 Q78 142 85 140" fill="#4A3728" />
+              <path d="M142 70 Q152 80 154 105 Q156 125 148 135 Q142 142 135 140" fill="#4A3728" />
+
               <ellipse cx="110" cy="100" rx="32" ry="36" fill="#F5E1CC" />
+
+              {/* Side hair framing face */}
+              <path d="M78 72 Q70 82 68 105 Q66 122 72 132 Q76 138 82 136" fill="#4A3728" opacity="0.85" />
+              <path d="M142 72 Q150 82 152 105 Q154 122 148 132 Q144 138 138 136" fill="#4A3728" opacity="0.85" />
+
               <ellipse cx="88" cy="108" rx="7" ry="4" fill="#FFB5B5" opacity="0.4" />
               <ellipse cx="132" cy="108" rx="7" ry="4" fill="#FFB5B5" opacity="0.4" />
 
@@ -227,30 +224,46 @@ export default function PainterCharacter() {
               <circle cx="120" cy="63" r="2.5" fill="#4ECDC4" opacity="0.7" />
               <circle cx="108" cy="60" r="2" fill="#FFE66D" opacity="0.7" />
 
+              {/* Small flower on beret */}
+              <g transform="translate(124, 60)">
+                <circle cx="0" cy="-3" r="2.5" fill="#FFB5B5" />
+                <circle cx="2.5" cy="-1" r="2.5" fill="#FFB5B5" />
+                <circle cx="2.5" cy="2" r="2.5" fill="#FFB5B5" />
+                <circle cx="0" cy="4" r="2.5" fill="#FFB5B5" />
+                <circle cx="-2.5" cy="2" r="2.5" fill="#FFB5B5" />
+                <circle cx="-2.5" cy="-1" r="2.5" fill="#FFB5B5" />
+                <circle cx="0" cy="0" r="2" fill="#FFE66D" />
+              </g>
+
               {/* Eyes */}
               <ellipse cx="98" cy="95" rx="8" ry="9" fill="white" stroke="#D4C0A0" strokeWidth="0.5" />
               <circle cx={98 + eyeOffsetX} cy={95 + eyeOffsetY} r="4.5" fill="#2C2C2C" />
               <circle cx={99 + eyeOffsetX} cy={93 + eyeOffsetY} r="1.5" fill="white" />
 
+              {/* Left eyelashes */}
+              <path d="M90 91 L88 88" stroke="#2C2C2C" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M93 89 L92 86" stroke="#2C2C2C" strokeWidth="1.2" strokeLinecap="round" />
+
               <ellipse cx="122" cy="95" rx="8" ry="9" fill="white" stroke="#D4C0A0" strokeWidth="0.5" />
               <circle cx={122 + eyeOffsetX} cy={95 + eyeOffsetY} r="4.5" fill="#2C2C2C" />
               <circle cx={123 + eyeOffsetX} cy={93 + eyeOffsetY} r="1.5" fill="white" />
+
+              {/* Right eyelashes */}
+              <path d="M130 91 L132 88" stroke="#2C2C2C" strokeWidth="1.2" strokeLinecap="round" />
+              <path d="M127 89 L128 86" stroke="#2C2C2C" strokeWidth="1.2" strokeLinecap="round" />
 
               {/* Eyebrows */}
               <path d="M90 85 Q95 82 103 84" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" fill="none" />
               <path d="M117 84 Q125 82 130 85" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" fill="none" />
 
-              {/* Nose */}
               <path d="M108 100 Q110 104 112 100" stroke="#D4B898" strokeWidth="1.5" strokeLinecap="round" fill="none" />
 
-              {/* Smile */}
               <path d="M100 112 Q105 118 110 118 Q115 118 120 112" stroke="#8B7355" strokeWidth="1.5" strokeLinecap="round" fill="none">
                 <animate attributeName="d" values="M100 112 Q105 118 110 118 Q115 118 120 112;M100 111 Q105 119 110 119 Q115 119 120 111;M100 112 Q105 118 110 118 Q115 118 120 112" dur="4s" repeatCount="indefinite" />
               </path>
             </g>
           </g>
 
-          {/* Paint strokes animation — cycles painting and erasing */}
           <g>
             {PAINT_STROKES.map((s) => {
               const dk = s.start / CYCLE;
